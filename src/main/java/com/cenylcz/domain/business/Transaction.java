@@ -1,4 +1,4 @@
-package com.cenylcz.domain;
+package com.cenylcz.domain.business;
 
 import com.cenylcz.Category;
 import com.cenylcz.PurchasedMethod;
