@@ -1,3 +1,5 @@
+CREATE DATABASE client;
+CREATE DATABASE business;
 create table `business`.`transaction` (
 	`transaction_key` INT NOT NULL AUTO_INCREMENT,
 	`amount` DOUBLE(8, 2) NOT NULL,
