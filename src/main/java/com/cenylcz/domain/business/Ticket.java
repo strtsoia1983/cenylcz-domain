@@ -1,14 +1,14 @@
 package com.cenylcz.domain.business;
 
+import com.cenylcz.Model;
 import com.cenylcz.constants.Instrument;
 import com.cenylcz.constants.TicketStatus;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "ticket", schema = "business")
-public class Ticket {
+public class Ticket implements Model {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

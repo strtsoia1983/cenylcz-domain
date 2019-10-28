@@ -6,7 +6,7 @@
 
     <groupId>com.cenylcz</groupId>
     <artifactId>cenylcz.domain</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <properties>
         <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
