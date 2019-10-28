@@ -25,7 +25,7 @@ public class Ticket implements Model {
     @Column(name = "open_price", nullable = false, precision = 8, scale = 2)
     private Double openPrice;
 
-    @Column(name = "open_price", precision = 8, scale = 2)
+    @Column(name = "close_price", precision = 8, scale = 2)
     private Double closePrice;
 
     @Column(name = "open_time", nullable = false)
