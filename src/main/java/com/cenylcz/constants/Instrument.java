@@ -2,10 +2,10 @@ package com.cenylcz.constants;
 
 public enum Instrument {
 
-    EURUSD("UER_USD"),
-    NZDCHF("NZD_CHF"),
-    AUDCHF("AUD_CHF"),
-    CADCHF("CAD_CHF");
+    EUR_USD("UER_USD"),
+    NZD_CHF("NZD_CHF"),
+    AUD_CHF("AUD_CHF"),
+    CAD_CHF("CAD_CHF");
 
     private final String instrument;
 
