@@ -1,9 +1,10 @@
 package com.cenylcz.constants;
 
 public enum TicketStatus {
-
+    ORDER("order"),
     OPEN("open"),
-    CLOSE("close");
+    CLOSE("close"),
+    COMPLETE("complete");
 
     private String ticketStatus;
 
