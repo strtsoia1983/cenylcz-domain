@@ -3,11 +3,12 @@ package com.cenylcz.domain.client;
 import com.cenylcz.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
 @Table(name = "user", schema = "client")
-public class User implements Model {
+public class User extends Model implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

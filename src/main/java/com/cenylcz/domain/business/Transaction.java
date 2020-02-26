@@ -4,11 +4,12 @@ import com.cenylcz.Model;
 import com.cenylcz.constants.Category;
 import com.cenylcz.constants.PurchasedMethod;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "transaction", schema = "business")
-public class Transaction implements Model {
+public class Transaction extends Model implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

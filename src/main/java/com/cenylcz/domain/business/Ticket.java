@@ -4,11 +4,12 @@ import com.cenylcz.Model;
 import com.cenylcz.constants.Instrument;
 import com.cenylcz.constants.TicketStatus;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "ticket", schema = "business")
-public class Ticket implements Model {
+public class Ticket extends Model implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
