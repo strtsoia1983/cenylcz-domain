@@ -6,7 +6,8 @@ public enum Instrument {
     NZD_CHF("NZD_CHF"),
     AUD_CHF("AUD_CHF"),
     CAD_CHF("CAD_CHF"),
-    USD_CHF("USD_CHF");
+    USD_CHF("USD_CHF"),
+    WEST_TEXAS_OIL("WEST_TEXAS_OIL");
 
     private final String instrument;
 
