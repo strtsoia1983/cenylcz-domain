@@ -6,13 +6,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "trade", schema = "business")
-public class Trade extends Model implements Serializable {
+@Table(name = "stock", schema = "business")
+public class Stock extends Ticket implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "trade_key", unique = true, nullable = false)
-    private Integer tradeKey;
+    @Column(name = "stock_key", unique = true, nullable = false)
+    private Integer stockKey;
 
     @Column(name = "symbol", unique = false, nullable = false)
     private String symbol;
@@ -35,12 +35,12 @@ public class Trade extends Model implements Serializable {
     @Column(name = "GAIN_LOST_TOTAL", unique = false, nullable = false)
     private Double gainLostTotal;
 
-    public Integer getTradeKey() {
-        return tradeKey;
+    public Integer getStockKey() {
+        return stockKey;
     }
 
-    public void setTradeKey(Integer tradeKey) {
-        this.tradeKey = tradeKey;
+    public void setStockKey(Integer stockKey) {
+        this.stockKey = stockKey;
     }
 
     public String getSymbol() {
@@ -101,8 +101,8 @@ public class Trade extends Model implements Serializable {
 
     @Override
     public String toString() {
-        return "Trade{" +
-                "tradeKey=" + tradeKey +
+        return "Stock{" +
+                "stockKey=" + stockKey +
                 ", symbol='" + symbol + '\'' +
                 ", quantity=" + quantity +
                 ", openUnitCost=" + openUnitCost +

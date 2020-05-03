@@ -1,6 +1,6 @@
 package com.cenylcz.constants;
 
-public enum TicketStatus {
+public enum ForexStatus {
     IMPORT("import"),
     ORDER("order"),
     OPEN("open"),
@@ -9,7 +9,7 @@ public enum TicketStatus {
 
     private String ticketStatus;
 
-    TicketStatus(String ticketStatus) {
+    ForexStatus(String ticketStatus) {
         this.ticketStatus = ticketStatus;
     }
 
