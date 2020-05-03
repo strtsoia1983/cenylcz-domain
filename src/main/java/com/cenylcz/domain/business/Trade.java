@@ -26,11 +26,11 @@ public class Trade extends Model implements Serializable {
     @Column(name = "close_unit_cost", unique = false, nullable = false)
     private Double closeUnitCost;
 
-    @Column(name = "purchase_date", unique = false, nullable = false)
-    private Date purchaseDate;
+    @Column(name = "purchase_time", unique = false, nullable = false)
+    private Date purchaseTime;
 
-    @Column(name = "close_date", unique = false, nullable = false)
-    private Date closeDate;
+    @Column(name = "close_time", unique = false, nullable = false)
+    private Date closeTime;
 
     @Column(name = "GAIN_LOST_TOTAL", unique = false, nullable = false)
     private Double gainLostTotal;
@@ -75,20 +75,20 @@ public class Trade extends Model implements Serializable {
         this.closeUnitCost = closeUnitCost;
     }
 
-    public Date getPurchaseDate() {
-        return purchaseDate;
+    public Date getPurchaseTime() {
+        return purchaseTime;
     }
 
-    public void setPurchaseDate(Date purchaseDate) {
-        this.purchaseDate = purchaseDate;
+    public void setPurchaseTime(Date purchaseTime) {
+        this.purchaseTime = purchaseTime;
     }
 
-    public Date getCloseDate() {
-        return closeDate;
+    public Date getCloseTime() {
+        return closeTime;
     }
 
-    public void setCloseDate(Date closeDate) {
-        this.closeDate = closeDate;
+    public void setCloseTime(Date closeTime) {
+        this.closeTime = closeTime;
     }
 
     public Double getGainLostTotal() {
@@ -107,8 +107,8 @@ public class Trade extends Model implements Serializable {
                 ", quantity=" + quantity +
                 ", openUnitCost=" + openUnitCost +
                 ", closeUnitCost=" + closeUnitCost +
-                ", purchaseDate=" + purchaseDate +
-                ", closeDate=" + closeDate +
+                ", purchaseTime=" + purchaseTime +
+                ", closeTime=" + closeTime +
                 ", gainLostTotal=" + gainLostTotal +
                 '}';
     }
