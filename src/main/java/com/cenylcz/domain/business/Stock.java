@@ -1,6 +1,6 @@
 package com.cenylcz.domain.business;
 
-import com.cenylcz.Model;
+import com.cenylcz.constants.StockStatus;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -32,8 +32,12 @@ public class Stock extends Ticket implements Serializable {
     @Column(name = "close_time", unique = false, nullable = false)
     private Date closeTime;
 
-    @Column(name = "GAIN_LOST_TOTAL", unique = false, nullable = false)
+    @Column(name = "gain_lost_total", unique = false, nullable = false)
     private Double gainLostTotal;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private StockStatus status;
 
     public Integer getStockKey() {
         return stockKey;
@@ -99,6 +103,14 @@ public class Stock extends Ticket implements Serializable {
         this.gainLostTotal = gainLostTotal;
     }
 
+    public StockStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(StockStatus status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Stock{" +
@@ -110,6 +122,7 @@ public class Stock extends Ticket implements Serializable {
                 ", purchaseTime=" + purchaseTime +
                 ", closeTime=" + closeTime +
                 ", gainLostTotal=" + gainLostTotal +
+                ", status=" + status +
                 '}';
     }
 }
