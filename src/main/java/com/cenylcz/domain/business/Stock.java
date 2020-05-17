@@ -1,9 +1,10 @@
 package com.cenylcz.domain.business;
 
 import com.cenylcz.constants.StockStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "stock", schema = "business")
@@ -27,10 +28,12 @@ public class Stock extends Ticket implements Serializable {
     private Double closeUnitCost;
 
     @Column(name = "purchase_time", unique = false, nullable = false)
-    private Date purchaseTime;
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+    private Timestamp purchaseTime;
 
     @Column(name = "close_time", unique = false, nullable = false)
-    private Date closeTime;
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+    private Timestamp closeTime;
 
     @Column(name = "gain_lost_total", unique = false, nullable = false)
     private Double gainLostTotal;
@@ -79,19 +82,21 @@ public class Stock extends Ticket implements Serializable {
         this.closeUnitCost = closeUnitCost;
     }
 
-    public Date getPurchaseTime() {
+    public Timestamp getPurchaseTime() {
+        System.out.println("!!!!" + this.purchaseTime);
         return purchaseTime;
     }
 
-    public void setPurchaseTime(Date purchaseTime) {
+    public void setPurchaseTime(Timestamp purchaseTime) {
+        System.out.println("####" + purchaseTime);
         this.purchaseTime = purchaseTime;
     }
 
-    public Date getCloseTime() {
+    public Timestamp getCloseTime() {
         return closeTime;
     }
 
-    public void setCloseTime(Date closeTime) {
+    public void setCloseTime(Timestamp closeTime) {
         this.closeTime = closeTime;
     }
 

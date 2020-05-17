@@ -3,6 +3,8 @@ package com.cenylcz.domain.business;
 import com.cenylcz.Model;
 import com.cenylcz.constants.Instrument;
 import com.cenylcz.constants.ForexStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -30,9 +32,11 @@ public class Forex extends Ticket implements Serializable {
     private Double closePrice;
 
     @Column(name = "open_time", nullable = false)
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Timestamp openTime;
 
     @Column(name = "close_time")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Timestamp closeTime;
 
     @Column(name = "profit", precision = 8, scale = 2)

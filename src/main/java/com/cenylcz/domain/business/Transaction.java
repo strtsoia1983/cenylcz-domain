@@ -3,6 +3,8 @@ package com.cenylcz.domain.business;
 import com.cenylcz.Model;
 import com.cenylcz.constants.Category;
 import com.cenylcz.constants.PurchasedMethod;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -20,6 +22,7 @@ public class Transaction extends Model implements Serializable {
     private Double amount;
 
     @Column(name = "transaction_date", nullable = false)
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Timestamp transactionDate;
 
     @Enumerated(EnumType.STRING)
