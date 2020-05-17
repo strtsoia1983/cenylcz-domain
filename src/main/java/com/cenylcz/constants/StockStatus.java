@@ -2,10 +2,10 @@ package com.cenylcz.constants;
 
 public enum StockStatus {
 
-    ACTIVE("ACTIVE"),
-    PENDING("PENDING"),
-    CANCELLED("CANCELLED"),
-    CLOSED("CLOSED");
+    ACTIVE("Active"),
+    PENDING("Pending"),
+    CANCELLED("Cancelled"),
+    CLOSED("Closed");
 
     private final String stockStatus;
 
