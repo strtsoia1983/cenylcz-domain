@@ -1,6 +1,7 @@
 package com.cenylcz.domain.business;
 
 import com.cenylcz.constants.StockStatus;
+import com.cenylcz.constants.TradePlatform;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -44,6 +45,10 @@ public class Stock extends Ticket implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private StockStatus status;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "trade_platform", nullable = false)
+    private TradePlatform tradePlatform;
 
     public Integer getStockKey() {
         return stockKey;
@@ -125,6 +130,14 @@ public class Stock extends Ticket implements Serializable {
         this.status = status;
     }
 
+    public TradePlatform getTradePlatform() {
+        return tradePlatform;
+    }
+
+    public void setTradePlatform(TradePlatform tradePlatform) {
+        this.tradePlatform = tradePlatform;
+    }
+
     @Override
     public String toString() {
         return "Stock{" +
@@ -138,6 +151,7 @@ public class Stock extends Ticket implements Serializable {
                 ", closeTime=" + closeTime +
                 ", gainLostTotal=" + gainLostTotal +
                 ", status=" + status +
+                ", tradePlatform=" + tradePlatform +
                 '}';
     }
 }
