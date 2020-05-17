@@ -18,6 +18,9 @@ public class Stock extends Ticket implements Serializable {
     @Column(name = "symbol", unique = false, nullable = false)
     private String symbol;
 
+    @Column(name = "full_name", unique = false, nullable = false)
+    private String fullName;
+
     @Column(name = "quantity", unique = false, nullable = false)
     private Integer quantity;
 
@@ -58,6 +61,14 @@ public class Stock extends Ticket implements Serializable {
         this.symbol = symbol;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     public Integer getQuantity() {
         return quantity;
     }
@@ -83,12 +94,10 @@ public class Stock extends Ticket implements Serializable {
     }
 
     public Timestamp getPurchaseTime() {
-        System.out.println("!!!!" + this.purchaseTime);
         return purchaseTime;
     }
 
     public void setPurchaseTime(Timestamp purchaseTime) {
-        System.out.println("####" + purchaseTime);
         this.purchaseTime = purchaseTime;
     }
 
@@ -121,6 +130,7 @@ public class Stock extends Ticket implements Serializable {
         return "Stock{" +
                 "stockKey=" + stockKey +
                 ", symbol='" + symbol + '\'' +
+                ", fullName='" + fullName + '\'' +
                 ", quantity=" + quantity +
                 ", openUnitCost=" + openUnitCost +
                 ", closeUnitCost=" + closeUnitCost +
