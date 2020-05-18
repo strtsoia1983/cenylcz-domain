@@ -13,6 +13,10 @@ public enum StockStatus {
         this.stockStatus = stockStatus;
     }
 
+    public String getStockStatus() {
+        return stockStatus;
+    }
+
     @Override
     public String toString() {
         return "StockStatus{" +

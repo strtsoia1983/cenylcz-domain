@@ -10,6 +10,10 @@ public enum TradePlatform {
         this.platform = platform;
     }
 
+    public String getPlatform() {
+        return platform;
+    }
+
     @Override
     public String toString() {
         return "TradePlatform{" +

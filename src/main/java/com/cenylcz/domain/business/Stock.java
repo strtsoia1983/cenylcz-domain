@@ -2,6 +2,8 @@ package com.cenylcz.domain.business;
 
 import com.cenylcz.constants.StockStatus;
 import com.cenylcz.constants.TradePlatform;
+import com.cenylcz.convert.StockStatusConvert;
+import com.cenylcz.convert.TradePlatformConvert;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -42,12 +44,12 @@ public class Stock extends Ticket implements Serializable {
     @Column(name = "gain_lost_total", unique = false, nullable = false)
     private Double gainLostTotal;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
+    @Convert(converter = StockStatusConvert.class)
     private StockStatus status;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "trade_platform", nullable = false)
+    @Convert(converter = TradePlatformConvert.class)
     private TradePlatform tradePlatform;
 
     public Integer getStockKey() {
