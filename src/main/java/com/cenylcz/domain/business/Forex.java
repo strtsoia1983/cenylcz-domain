@@ -1,10 +1,10 @@
 package com.cenylcz.domain.business;
 
-import com.cenylcz.Model;
 import com.cenylcz.constants.Instrument;
 import com.cenylcz.constants.ForexStatus;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -12,6 +12,31 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "forex", schema = "business")
 public class Forex extends Ticket implements Serializable {
+
+    public Forex() {
+
+    }
+
+    @JsonCreator
+    public Forex(@JsonProperty(required = true, value = "forexKey") Integer forexKey,
+                 @JsonProperty(required = true, value = "units") Integer units,
+                 @JsonProperty(required = true, value = "instrument") Instrument instrument,
+                 @JsonProperty(required = true, value = "openPrice") Double openPrice,
+                 @JsonProperty(required = true, value = "closePrice") Double closePrice,
+                 @JsonProperty(required = true, value = "openTime") Timestamp openTime,
+                 @JsonProperty(required = true, value = "closeTime") Timestamp closeTime,
+                 @JsonProperty(required = true, value = "profit") Double profit,
+                 @JsonProperty(required = true, value = "forexStatus") ForexStatus forexStatus) {
+        this.forexKey = forexKey;
+        this.units = units;
+        this.instrument = instrument;
+        this.openPrice = openPrice;
+        this.closePrice = closePrice;
+        this.openTime = openTime;
+        this.closeTime = closeTime;
+        this.profit = profit;
+        this.forexStatus = forexStatus;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

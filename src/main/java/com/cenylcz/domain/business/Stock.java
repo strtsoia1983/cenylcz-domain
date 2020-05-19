@@ -4,7 +4,9 @@ import com.cenylcz.constants.StockStatus;
 import com.cenylcz.constants.TradePlatform;
 import com.cenylcz.convert.StockStatusConvert;
 import com.cenylcz.convert.TradePlatformConvert;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -12,6 +14,35 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "stock", schema = "business")
 public class Stock extends Ticket implements Serializable {
+
+    public Stock() {
+
+    }
+
+    @JsonCreator
+    public Stock(@JsonProperty(required = true, value = "stockKey") Integer stockKey,
+                 @JsonProperty(required = true, value = "symbol") String symbol,
+                 @JsonProperty(required = true, value = "fullName") String fullName,
+                 @JsonProperty(required = true, value = "quantity") Integer quantity,
+                 @JsonProperty(required = true, value = "openUnitCost") Double openUnitCost,
+                 @JsonProperty(required = true, value = "closeUnitCost") Double closeUnitCost,
+                 @JsonProperty(required = true, value = "purchaseTime") Timestamp purchaseTime,
+                 @JsonProperty(required = true, value = "closeTime") Timestamp closeTime,
+                 @JsonProperty(required = true, value = "gainLostTotal") Double gainLostTotal,
+                 @JsonProperty(required = true, value = "status") StockStatus status,
+                 @JsonProperty(required = true, value = "tradePlatform") TradePlatform tradePlatform) {
+        this.stockKey = stockKey;
+        this.symbol = symbol;
+        this.fullName = fullName;
+        this.quantity = quantity;
+        this.openUnitCost = openUnitCost;
+        this.closeUnitCost = closeUnitCost;
+        this.purchaseTime = purchaseTime;
+        this.closeTime = closeTime;
+        this.gainLostTotal = gainLostTotal;
+        this.status = status;
+        this.tradePlatform = tradePlatform;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
