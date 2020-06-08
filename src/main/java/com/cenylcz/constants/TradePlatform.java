@@ -2,7 +2,8 @@ package com.cenylcz.constants;
 
 public enum TradePlatform {
     FIDELITY("Fidelity"),
-    FIRSTTRADE("firstTrade");
+    AMERITRADE("Ameritrade"),
+    FIRSTTRADE("FirstTrade");
 
     private final String platform;
 
