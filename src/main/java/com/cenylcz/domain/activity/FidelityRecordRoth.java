@@ -2,80 +2,94 @@ package com.cenylcz.domain.activity;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class FidelityRecord extends Record {
+@Entity
+@Table(name = "fidelity_record_roth", schema = "activity")
+public class FidelityRecordRoth extends Record{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "fidelity_record_roth_key", unique = true, nullable = false)
+    private Integer fidelityRecordRothKey;
 
     @CsvDate(value = "MM/dd/yyyy")
     @CsvBindByName(column = "Run Date")
+    @Column(name = "run_date", unique = false, nullable = false)
     private LocalDate runDate;
 
     @CsvBindByName(column = "Action")
+    @Column(name = "action", unique = false, nullable = false)
     private String action;
 
     @CsvBindByName(column = "Symbol")
+    @Column(name = "symbol", unique = false, nullable = false)
     private String symbol;
 
     @CsvBindByName(column = "Security Description")
+    @Column(name = "security_description", unique = false, nullable = true)
     private String securityDescription;
 
     @CsvBindByName(column = "Security Type")
+    @Column(name = "security_type", unique = false, nullable = true)
     private String securityType;
 
-    @CsvBindByName(column = "Exchange Quantity")
-    private double exchangeQuantity;
-
-    @CsvBindByName(column = "Exchange Currency")
-    private String exchangeCurrency;
-
-    @CsvBindByName(column = "Quantity")
-    private double quantity;
-
     @CsvBindByName(column = "Currency")
+    @Column(name = "currency", unique = false, nullable = true)
     private String currency;
 
     @CsvBindByName(column = "Price")
+    @Column(name = "price", unique = false, nullable = true)
     private double price;
 
-    @CsvBindByName(column = "Exchange Rate")
-    private double exchangeRate;
-
     @CsvBindByName(column = "Commission")
+    @Column(name = "commission", unique = false, nullable = true)
     private double commission;
 
     @CsvBindByName(column = "Fees")
+    @Column(name = "fees", unique = false, nullable = true)
     private double fees;
 
     @CsvBindByName(column = "Accrued Interest")
+    @Column(name = "accrued_interest", unique = false, nullable = true)
     private double accruedInterest;
 
     @CsvBindByName(column = "Amount")
+    @Column(name = "amount", unique = false, nullable = true)
     private double amount;
 
     @CsvDate(value = "MM/dd/yyyy")
     @CsvBindByName(column = "Settlement Date")
+    @Column(name = "settlement_date", unique = false, nullable = true)
     private LocalDate settlementDate;
 
-    public FidelityRecord() {
+    public FidelityRecordRoth() {
+
     }
 
-    public FidelityRecord(LocalDate runDate, String action, String symbol, String securityDescription, String securityType, double exchangeQuantity, String exchangeCurrency, double quantity, String currency, double price, double exchangeRate, double commission, double fees, double accruedInterest, double amount, LocalDate settlementDate) {
+    public FidelityRecordRoth(Integer fidelityRecordRothKey, LocalDate runDate, String action, String symbol, String securityDescription, String securityType, String currency, double price, double commission, double fees, double accruedInterest, double amount, LocalDate settlementDate) {
+        this.fidelityRecordRothKey = fidelityRecordRothKey;
         this.runDate = runDate;
         this.action = action;
         this.symbol = symbol;
         this.securityDescription = securityDescription;
         this.securityType = securityType;
-        this.exchangeQuantity = exchangeQuantity;
-        this.exchangeCurrency = exchangeCurrency;
-        this.quantity = quantity;
         this.currency = currency;
         this.price = price;
-        this.exchangeRate = exchangeRate;
         this.commission = commission;
         this.fees = fees;
         this.accruedInterest = accruedInterest;
         this.amount = amount;
         this.settlementDate = settlementDate;
+    }
+
+    public Integer getFidelityRecordRothKey() {
+        return fidelityRecordRothKey;
+    }
+
+    public void setFidelityRecordRothKey(Integer fidelityRecordRothKey) {
+        this.fidelityRecordRothKey = fidelityRecordRothKey;
     }
 
     public LocalDate getRunDate() {
@@ -118,30 +132,6 @@ public class FidelityRecord extends Record {
         this.securityType = securityType;
     }
 
-    public double getExchangeQuantity() {
-        return exchangeQuantity;
-    }
-
-    public void setExchangeQuantity(double exchangeQuantity) {
-        this.exchangeQuantity = exchangeQuantity;
-    }
-
-    public String getExchangeCurrency() {
-        return exchangeCurrency;
-    }
-
-    public void setExchangeCurrency(String exchangeCurrency) {
-        this.exchangeCurrency = exchangeCurrency;
-    }
-
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
-
     public String getCurrency() {
         return currency;
     }
@@ -156,14 +146,6 @@ public class FidelityRecord extends Record {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public double getExchangeRate() {
-        return exchangeRate;
-    }
-
-    public void setExchangeRate(double exchangeRate) {
-        this.exchangeRate = exchangeRate;
     }
 
     public double getCommission() {
@@ -208,18 +190,15 @@ public class FidelityRecord extends Record {
 
     @Override
     public String toString() {
-        return "FidelityRecord{" +
-                "runDate=" + runDate +
+        return "FidelityRecordRoth{" +
+                "fidelityRecordRothKey=" + fidelityRecordRothKey +
+                ", runDate=" + runDate +
                 ", action='" + action + '\'' +
                 ", symbol='" + symbol + '\'' +
                 ", securityDescription='" + securityDescription + '\'' +
                 ", securityType='" + securityType + '\'' +
-                ", exchangeQuantity=" + exchangeQuantity +
-                ", exchangeCurrency='" + exchangeCurrency + '\'' +
-                ", quantity=" + quantity +
                 ", currency='" + currency + '\'' +
                 ", price=" + price +
-                ", exchangeRate=" + exchangeRate +
                 ", commission=" + commission +
                 ", fees=" + fees +
                 ", accruedInterest=" + accruedInterest +
