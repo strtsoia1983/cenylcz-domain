@@ -12,8 +12,8 @@ public class Stock extends Model {
     @Column(name = "stock_Key", unique = true, nullable = false)
     private Integer stockKey;
 
-    @Column(name = "symbol", nullable = false)
-    private String symbol;
+    @Column(name = "ticker", nullable = false)
+    private String ticker;
 
     @Column(name = "description", nullable = false)
     private String description;
@@ -29,12 +29,12 @@ public class Stock extends Model {
         this.stockKey = stockKey;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public String getTicker() {
+        return ticker;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
     }
 
     public String getDescription() {
@@ -55,9 +55,9 @@ public class Stock extends Model {
 
     @Override
     public String toString() {
-        return "Symbol{" +
+        return "Ticker{" +
                 "stockKey=" + stockKey +
-                ", symbol='" + symbol + '\'' +
+                ", ticker='" + ticker + '\'' +
                 ", description='" + description + '\'' +
                 ", category='" + category + '\'' +
                 '}';

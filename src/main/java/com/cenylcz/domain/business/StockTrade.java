@@ -21,7 +21,7 @@ public class StockTrade extends Ticket implements Serializable {
 
     @JsonCreator
     public StockTrade(@JsonProperty(required = true, value = "stockTradeKey") Integer stockTradeKey,
-                      @JsonProperty(required = true, value = "symbol") String symbol,
+                      @JsonProperty(required = true, value = "ticker") String ticker,
                       @JsonProperty(required = true, value = "fullName") String fullName,
                       @JsonProperty(required = true, value = "quantity") Integer quantity,
                       @JsonProperty(required = true, value = "openUnitCost") Double openUnitCost,
@@ -32,7 +32,7 @@ public class StockTrade extends Ticket implements Serializable {
                       @JsonProperty(required = true, value = "status") StockStatus status,
                       @JsonProperty(required = true, value = "tradePlatform") TradePlatform tradePlatform) {
         this.stockTradeKey = stockTradeKey;
-        this.symbol = symbol;
+        this.ticker = ticker;
         this.fullName = fullName;
         this.quantity = quantity;
         this.openUnitCost = openUnitCost;
@@ -49,8 +49,8 @@ public class StockTrade extends Ticket implements Serializable {
     @Column(name = "stock_trade_key", unique = true, nullable = false)
     private Integer stockTradeKey;
 
-    @Column(name = "symbol", unique = false, nullable = false)
-    private String symbol;
+    @Column(name = "ticker", unique = false, nullable = false)
+    private String ticker;
 
     @Column(name = "full_name", unique = false, nullable = false)
     private String fullName;
@@ -91,12 +91,12 @@ public class StockTrade extends Ticket implements Serializable {
         this.stockTradeKey = stockTradeKey;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public String getTicker() {
+        return ticker;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
     }
 
     public String getFullName() {
@@ -175,7 +175,7 @@ public class StockTrade extends Ticket implements Serializable {
     public String toString() {
         return "Stock{" +
                 "stockTradeKey=" + stockTradeKey +
-                ", symbol='" + symbol + '\'' +
+                ", ticker='" + ticker + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", quantity=" + quantity +
                 ", openUnitCost=" + openUnitCost +
