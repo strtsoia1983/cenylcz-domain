@@ -20,11 +20,11 @@ public class FTRecord extends Record {
 
     @CsvBindByName(column = "quantity")
     @Column(name = "quantity", unique = false, nullable = false)
-    private double quantity;
+    private Double quantity;
 
     @CsvBindByName(column = "price")
     @Column(name = "price", unique = false, nullable = false)
-    private double price;
+    private Double price;
 
     @CsvBindByName(column = "action")
     @Column(name = "action", unique = false, nullable = true)
@@ -46,19 +46,19 @@ public class FTRecord extends Record {
 
     @CsvBindByName(column = "interest")
     @Column(name = "interest", unique = false, nullable = true)
-    private double interest;
+    private Double interest;
 
     @CsvBindByName(column = "amount")
     @Column(name = "amount", unique = false, nullable = false)
-    private double amount;
+    private Double amount;
 
     @CsvBindByName(column = "commission")
     @Column(name = "commission", unique = false, nullable = true)
-    private double commission;
+    private Double commission;
 
     @CsvBindByName(column = "fee")
     @Column(name = "fee", unique = false, nullable = true)
-    private double fee;
+    private Double fee;
 
     @CsvBindByName(column = "cusip")
     @Column(name = "cusip", unique = false, nullable = true)
@@ -71,7 +71,7 @@ public class FTRecord extends Record {
     public FTRecord() {
     }
 
-    public FTRecord(Integer ftRecordKey, String symbol, double quantity, double price, String action, String description, LocalDate tradeDate, LocalDate settledDate, double interest, double amount, double commission, double fee, String cusip, String recordType) {
+    public FTRecord(Integer ftRecordKey, String symbol, Double quantity, Double price, String action, String description, LocalDate tradeDate, LocalDate settledDate, Double interest, Double amount, Double commission, Double fee, String cusip, String recordType) {
         this.ftRecordKey = ftRecordKey;
         this.symbol = symbol;
         this.quantity = quantity;
@@ -104,19 +104,19 @@ public class FTRecord extends Record {
         this.symbol = symbol;
     }
 
-    public double getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(double quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -152,35 +152,35 @@ public class FTRecord extends Record {
         this.settledDate = settledDate;
     }
 
-    public double getInterest() {
+    public Double getInterest() {
         return interest;
     }
 
-    public void setInterest(double interest) {
+    public void setInterest(Double interest) {
         this.interest = interest;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
-    public double getCommission() {
+    public Double getCommission() {
         return commission;
     }
 
-    public void setCommission(double commission) {
+    public void setCommission(Double commission) {
         this.commission = commission;
     }
 
-    public double getFee() {
+    public Double getFee() {
         return fee;
     }
 
-    public void setFee(double fee) {
+    public void setFee(Double fee) {
         this.fee = fee;
     }
 

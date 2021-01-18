@@ -37,7 +37,7 @@ public class FidelityRecordIndividual extends Record {
 
     @CsvBindByName(column = "Exchange Quantity")
     @Column(name = "exchange_quantity", unique = false, nullable = true)
-    private double exchangeQuantity;
+    private Double exchangeQuantity;
 
     @CsvBindByName(column = "Exchange Currency")
     @Column(name = "exchange_currency", unique = false, nullable = true)
@@ -45,7 +45,7 @@ public class FidelityRecordIndividual extends Record {
 
     @CsvBindByName(column = "Quantity")
     @Column(name = "quantity", unique = false, nullable = true)
-    private double quantity;
+    private Double quantity;
 
     @CsvBindByName(column = "Currency")
     @Column(name = "currency", unique = false, nullable = true)
@@ -53,27 +53,27 @@ public class FidelityRecordIndividual extends Record {
 
     @CsvBindByName(column = "Price")
     @Column(name = "price", unique = false, nullable = true)
-    private double price;
+    private Double price;
 
     @CsvBindByName(column = "Exchange Rate")
     @Column(name = "exchange_rate", unique = false, nullable = true)
-    private double exchangeRate;
+    private Double exchangeRate;
 
     @CsvBindByName(column = "Commission")
     @Column(name = "commission", unique = false, nullable = true)
-    private double commission;
+    private Double commission;
 
     @CsvBindByName(column = "Fees")
     @Column(name = "fees", unique = false, nullable = true)
-    private double fees;
+    private Double fees;
 
     @CsvBindByName(column = "Accrued Interest")
     @Column(name = "accrued_interest", unique = false, nullable = true)
-    private double accruedInterest;
+    private Double accruedInterest;
 
     @CsvBindByName(column = "Amount")
     @Column(name = "amount", unique = false, nullable = true)
-    private double amount;
+    private Double amount;
 
     @CsvDate(value = "MM/dd/yyyy")
     @CsvBindByName(column = "Settlement Date")
@@ -83,7 +83,7 @@ public class FidelityRecordIndividual extends Record {
     public FidelityRecordIndividual() {
     }
 
-    public FidelityRecordIndividual(Integer fidelityRecordIndividualKey, LocalDate runDate, String action, String symbol, String securityDescription, String securityType, double exchangeQuantity, String exchangeCurrency, double quantity, String currency, double price, double exchangeRate, double commission, double fees, double accruedInterest, double amount, LocalDate settlementDate) {
+    public FidelityRecordIndividual(Integer fidelityRecordIndividualKey, LocalDate runDate, String action, String symbol, String securityDescription, String securityType, Double exchangeQuantity, String exchangeCurrency, Double quantity, String currency, Double price, Double exchangeRate, Double commission, Double fees, Double accruedInterest, Double amount, LocalDate settlementDate) {
         this.fidelityRecordIndividualKey = fidelityRecordIndividualKey;
         this.runDate = runDate;
         this.action = action;
@@ -151,11 +151,11 @@ public class FidelityRecordIndividual extends Record {
         this.securityType = securityType;
     }
 
-    public double getExchangeQuantity() {
+    public Double getExchangeQuantity() {
         return exchangeQuantity;
     }
 
-    public void setExchangeQuantity(double exchangeQuantity) {
+    public void setExchangeQuantity(Double exchangeQuantity) {
         this.exchangeQuantity = exchangeQuantity;
     }
 
@@ -167,11 +167,11 @@ public class FidelityRecordIndividual extends Record {
         this.exchangeCurrency = exchangeCurrency;
     }
 
-    public double getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(double quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 
@@ -183,51 +183,51 @@ public class FidelityRecordIndividual extends Record {
         this.currency = currency;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public double getExchangeRate() {
+    public Double getExchangeRate() {
         return exchangeRate;
     }
 
-    public void setExchangeRate(double exchangeRate) {
+    public void setExchangeRate(Double exchangeRate) {
         this.exchangeRate = exchangeRate;
     }
 
-    public double getCommission() {
+    public Double getCommission() {
         return commission;
     }
 
-    public void setCommission(double commission) {
+    public void setCommission(Double commission) {
         this.commission = commission;
     }
 
-    public double getFees() {
+    public Double getFees() {
         return fees;
     }
 
-    public void setFees(double fees) {
+    public void setFees(Double fees) {
         this.fees = fees;
     }
 
-    public double getAccruedInterest() {
+    public Double getAccruedInterest() {
         return accruedInterest;
     }
 
-    public void setAccruedInterest(double accruedInterest) {
+    public void setAccruedInterest(Double accruedInterest) {
         this.accruedInterest = accruedInterest;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

@@ -41,23 +41,23 @@ public class FidelityRecordRoth extends Record{
 
     @CsvBindByName(column = "Price")
     @Column(name = "price", unique = false, nullable = true)
-    private double price;
+    private Double price;
 
     @CsvBindByName(column = "Commission")
     @Column(name = "commission", unique = false, nullable = true)
-    private double commission;
+    private Double commission;
 
     @CsvBindByName(column = "Fees")
     @Column(name = "fees", unique = false, nullable = true)
-    private double fees;
+    private Double fees;
 
     @CsvBindByName(column = "Accrued Interest")
     @Column(name = "accrued_interest", unique = false, nullable = true)
-    private double accruedInterest;
+    private Double accruedInterest;
 
     @CsvBindByName(column = "Amount")
     @Column(name = "amount", unique = false, nullable = true)
-    private double amount;
+    private Double amount;
 
     @CsvDate(value = "MM/dd/yyyy")
     @CsvBindByName(column = "Settlement Date")
@@ -65,10 +65,9 @@ public class FidelityRecordRoth extends Record{
     private LocalDate settlementDate;
 
     public FidelityRecordRoth() {
-
     }
 
-    public FidelityRecordRoth(Integer fidelityRecordRothKey, LocalDate runDate, String action, String symbol, String securityDescription, String securityType, String currency, double price, double commission, double fees, double accruedInterest, double amount, LocalDate settlementDate) {
+    public FidelityRecordRoth(Integer fidelityRecordRothKey, LocalDate runDate, String action, String symbol, String securityDescription, String securityType, String currency, Double price, Double commission, Double fees, Double accruedInterest, Double amount, LocalDate settlementDate) {
         this.fidelityRecordRothKey = fidelityRecordRothKey;
         this.runDate = runDate;
         this.action = action;
@@ -140,43 +139,43 @@ public class FidelityRecordRoth extends Record{
         this.currency = currency;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public double getCommission() {
+    public Double getCommission() {
         return commission;
     }
 
-    public void setCommission(double commission) {
+    public void setCommission(Double commission) {
         this.commission = commission;
     }
 
-    public double getFees() {
+    public Double getFees() {
         return fees;
     }
 
-    public void setFees(double fees) {
+    public void setFees(Double fees) {
         this.fees = fees;
     }
 
-    public double getAccruedInterest() {
+    public Double getAccruedInterest() {
         return accruedInterest;
     }
 
-    public void setAccruedInterest(double accruedInterest) {
+    public void setAccruedInterest(Double accruedInterest) {
         this.accruedInterest = accruedInterest;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
