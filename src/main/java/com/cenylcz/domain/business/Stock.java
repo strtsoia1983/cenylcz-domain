@@ -2,9 +2,10 @@ package com.cenylcz.domain.business;
 
 import com.cenylcz.Model;
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table(name = "stock", schema = "business")
+@Table(name = "stock", schema = "cenylcz")
 public class Stock extends Model {
 
     @Id
@@ -17,9 +18,6 @@ public class Stock extends Model {
 
     @Column(name = "description", nullable = false)
     private String description;
-
-    @Column(name = "category", nullable = false)
-    private String category;
 
     public Integer getStockKey() {
         return stockKey;
@@ -45,21 +43,25 @@ public class Stock extends Model {
         this.description = description;
     }
 
-    public String getCategory() {
-        return category;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Stock stock = (Stock) o;
+        return Objects.equals(stockKey, stock.stockKey) && Objects.equals(ticker, stock.ticker) && Objects.equals(description, stock.description);
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    @Override
+    public int hashCode() {
+        return Objects.hash(stockKey, ticker, description);
     }
 
     @Override
     public String toString() {
-        return "Ticker{" +
+        return "Stock{" +
                 "stockKey=" + stockKey +
                 ", ticker='" + ticker + '\'' +
                 ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
                 '}';
     }
 }

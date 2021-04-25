@@ -1,10 +1,15 @@
 package com.cenylcz.domain.client;
 
 import com.cenylcz.Model;
-
+import com.cenylcz.domain.DateDeserializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "user", schema = "client")
@@ -22,7 +27,7 @@ public class User extends Model implements Serializable {
     private String lastName;
 
     @Column(name = "boa", nullable = false)
-    private Date boa;
+    private ZonedDateTime boa;
 
     public Integer getUserKey() {
         return userKey;
@@ -48,12 +53,32 @@ public class User extends Model implements Serializable {
         this.lastName = lastName;
     }
 
-    public Date getBoa() {
-        return boa;
+    @JsonFormat(pattern = "MM/dd/yyyy HH:mm:ss.S")
+    public Timestamp getBoa() {
+        if (boa != null) {
+            return Timestamp.from(boa.toInstant());
+        }
+        return null;
     }
 
-    public void setBoa(Date boa) {
-        this.boa = boa;
+    @JsonDeserialize(using = DateDeserializer.class)
+    public void setBoa(Timestamp boa) {
+        if (boa != null) {
+            this.boa = boa.toLocalDateTime().atZone(ZoneId.of("Z"));
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(userKey, user.userKey) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(boa, user.boa);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userKey, firstName, lastName, boa);
     }
 
     @Override
