@@ -2,11 +2,12 @@ package com.cenylcz.domain.business;
 
 import com.cenylcz.Model;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "stock", schema = "cenylcz")
-public class Stock extends Model {
+public class Stock extends Model implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
