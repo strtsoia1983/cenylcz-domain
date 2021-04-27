@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "trade", schema = "cenylcz")
+@Table(name = "trade", schema = "business")
 public class Trade extends Model implements Serializable {
 
     @Id
@@ -29,7 +29,7 @@ public class Trade extends Model implements Serializable {
     @Column(name = "open_unit_cost", nullable = false)
     private Double openUnitCost;
 
-    @Column(name = "close_unit_cost", nullable = false)
+    @Column(name = "close_unit_cost")
     private Double closeUnitCost;
 
     @Column(name = "purchase_time", nullable = false)

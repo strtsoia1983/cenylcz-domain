@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "stock", schema = "cenylcz")
+@Table(name = "stock", schema = "business")
 public class Stock extends Model implements Serializable {
 
     @Id
