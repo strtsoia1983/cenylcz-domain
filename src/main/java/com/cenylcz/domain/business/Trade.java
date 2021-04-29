@@ -2,6 +2,7 @@ package com.cenylcz.domain.business;
 
 import com.cenylcz.Model;
 import com.cenylcz.domain.DateDeserializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import javax.persistence.*;
@@ -81,6 +82,7 @@ public class Trade extends Model implements Serializable {
         this.closeUnitCost = closeUnitCost;
     }
 
+    @JsonFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     public Timestamp getPurchaseTime() {
         if (this.purchaseTime != null) {
             return Timestamp.from(this.purchaseTime.toInstant());
@@ -95,6 +97,7 @@ public class Trade extends Model implements Serializable {
         }
     }
 
+    @JsonFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     public Timestamp getCloseTime() {
         if (this.closeTime != null) {
             return Timestamp.from(this.closeTime.toInstant());
